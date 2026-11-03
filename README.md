@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Logistics ERP Prototype
+
+A small, focused prototype of a logistics management system. It has one Dashboard and three simple modules: money (COD, debit, credit), fleet, and inventory. Simple data goes in, simple numbers and tables come out. Nothing else.
+
+This is the first step of the larger modular Logistics ERP build. It is for demo and feedback, not production use.
+
+## Features
+
+| Tab                     | What it does                                                                                               |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Dashboard**           | Read-only overview: pending COD, total debit and credit, vehicles per status, total stock, low-stock count |
+| **COD, Debit & Credit** | Add, edit, settle, and delete finance entries. Filter by type and status. Totals at the top                |
+| **Fleet**               | Add, edit, and delete vehicles. Track status: Available, On Trip, In Maintenance                           |
+| **Inventory**           | Add, edit, and delete items. Adjust quantity. Low-stock items are highlighted                              |
+
+Anything not listed here is out of scope: no login or roles, no orders or routes, no invoicing, no GPS, no exports, no integrations.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- TypeScript
+- Tailwind CSS
+- MongoDB (official `mongodb` Node driver, no ODM)
+
+No other libraries beyond what these four require.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (current LTS)
+- A MongoDB database (local, or a free hosted cluster)
+
+### Setup
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Create your environment file
+cp .env.example .env.local
+# then set MONGODB_URI in .env.local
+
+# 3. (Optional) Load sample data
+npm run seed
+
+# 4. Start the app
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable      | Description               |
+| ------------- | ------------------------- |
+| `MONGODB_URI` | MongoDB connection string |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+/app
+  layout.tsx               Shared layout with tab navigation
+  page.tsx                 Dashboard
+  finance/page.tsx         COD, Debit & Credit tab
+  fleet/page.tsx           Fleet tab
+  inventory/page.tsx       Inventory tab
+  api/                     Create / update / delete route handlers per module
+/components                Nav, Card, Table, Modal
+/lib
+  db.ts                    MongoDB connection
+  types.ts                 FinanceEntry, Vehicle, InventoryItem
+  seed.ts                  Sample data script
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Reading:** pages are server components that query MongoDB directly and render the result.
+- **Writing:** forms call simple route handlers (`POST`, `PUT`, `DELETE`), then the page refreshes.
+- **Dashboard:** computes its numbers from the same three collections (`finance`, `vehicles`, `inventory`). It stores nothing of its own.
 
-## Deploy on Vercel
+## Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **PRD:** Logistics ERP Prototype PRD v0.1 (what we build and what we do not)
+- **TAD:** Logistics ERP Prototype TAD v0.1 (architecture, data model, API, work split)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Team Workflow
+
+Three developers, six hours. Each developer owns one module end to end (page, form, API, types) to avoid merge conflicts.
+
+| Branch           | Module                  |
+| ---------------- | ----------------------- |
+| `feat/finance`   | COD, Debit & Credit     |
+| `feat/fleet`     | Fleet                   |
+| `feat/inventory` | Inventory and Dashboard |
+
+Merge to `main` at the agreed checkpoints. Touch only your own folders, except the shared files (`lib/types.ts`, `components/`).
+
+## Definition of Done
+
+- All four tabs open and work
+- Add, edit, and delete work in all three modules
+- Dashboard numbers match the tab data
+- Sample data is preloaded
+- App runs locally with `npm install` and `npm run dev`
