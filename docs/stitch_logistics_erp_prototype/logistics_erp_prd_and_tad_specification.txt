@@ -1,0 +1,12 @@
+# Logistics ERP Prototype — PRD & Technical Architecture Document (TAD)
+
+Product: Logistics ERP (BisTech) · Version: 0.1 Prototype · Status: Draft
+Team: 3 developers · Time box: 6 hours
+
+## Core Modules & Tabs
+1. Dashboard (Overview summary cards for Finance, Fleet, Inventory)
+2. COD, Debit & Credit (Finance transactions, settlement status, filters, add/edit)
+3. Fleet (Vehicles, driver assignment, status: Available / On Trip / In Maintenance)
+4. Inventory (Stock levels, SKU, units, low-stock alerts and adjustments)
+
+Design Principles: Clean, minimal layout with sidebar/top tab bar, clear operational data tables, quick forms/modals, desktop-first.

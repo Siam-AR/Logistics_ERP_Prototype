@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed":"#cce5ff","inverse-on-surface":"#eaf1ff","surface-container-low":"#eff4ff","secondary-fixed":"#dbe1ff","on-surface-variant":"#45474c","on-tertiary-fixed":"#001d31","primary":"#091426","surface-container-lowest":"#ffffff","tertiary-container":"#002b45","surface-container-high":"#dce9ff","error":"#ba1a1a","tertiary":"#001626","surface":"#f8f9ff","on-secondary":"#ffffff","on-tertiary-container":"#2f96db","on-surface":"#0b1c30","secondary-container":"#316bf3","on-primary":"#ffffff","on-secondary-fixed-variant":"#003ea8","surface-container-highest":"#d3e4fe","on-primary-container":"#8590a6","on-background":"#0b1c30","tertiary-fixed-dim":"#93ccff","surface-bright":"#f8f9ff","surface-tint":"#545f73","primary-fixed":"#d8e3fb","on-primary-fixed":"#111c2d","on-error":"#ffffff","primary-container":"#1e293b","on-primary-fixed-variant":"#3c475a","surface-container":"#e5eeff","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-tertiary":"#ffffff","outline":"#75777d","inverse-primary":"#bcc7de","primary-fixed-dim":"#bcc7de","background":"#f8f9ff","secondary-fixed-dim":"#b4c5ff","secondary":"#0051d5","error-container":"#ffdad6","on-secondary-container":"#fefcff","outline-variant":"#c5c6cd","on-secondary-fixed":"#00174b","on-tertiary-fixed-variant":"#004b73","surface-variant":"#d3e4fe","on-error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","margin-desktop":"2rem","space-xs":"0.25rem","space-xl":"2rem","space-sm":"0.5rem","margin-tablet":"1.5rem","space-lg":"1.25rem","gutter":"1rem","gutter-desktop":"1.5rem","margin":"1rem"},fontFamily:{"headline-lg":["Inter"],"body-sm":["Inter"],"data-mono":["JetBrains Mono"],"headline-xl":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"label-lg":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"]},fontSize:{"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"data-mono":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary text-on-primary z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-lg flex items-center justify-between bg-primary"><div class="flex items-center gap-space-sm min-w-0"><img alt="BisTech Logistics Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UdgmEe-1AuwxO0gHEaoN5fqIkwI9ewKM0QyvyefY3h6WvNn-YvK84P_Pcswxnx5n0tGw4vc0W1mSCUZzTuHNhAtGMT8IJzou9qLTaCf6hBx7k_d3H-U-aSUQ2iL8H_Xs0SKIqFWVON9ZLii8lL3CHzfNuns3IZ4xnMY1iEGMCuzwSAJmV2oyrtNsyRxOYgoXolVKnYBCDvCrBBLLJSRzJyRUewrisA_PSwVyPar7N3bw"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary truncate tracking-tight">BisTech</span><span class="font-label-sm text-label-sm text-on-primary-container leading-none uppercase">Logistics ERP</span></div></div><span class="inline-flex items-center px-space-xs py-0.5 rounded-lg font-label-sm text-label-sm uppercase bg-primary-container text-tertiary-fixed border border-on-primary-container/20">v0.1</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-tertiary/60"><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim animate-pulse"></span><span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase">Environment</span></div><span class="font-data-mono text-label-sm text-tertiary-fixed-dim">PROTOTYPE</span></div></div><div class="px-space-md pt-space-xs"><p class="px-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Operations Core</p><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-label-lg shadow-sm border-l-2 border-secondary-container"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary-container hover:bg-primary-container/50 hover:text-on-primary transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary-container hover:bg-primary-container/50 hover:text-on-primary transition-colors" data-path="cod-debit-credit" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span>COD, Debit & Credit</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary-container hover:bg-primary-container/50 hover:text-on-primary transition-colors" data-path="fleet" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span>Fleet</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-label-lg shadow-sm border-l-2 border-secondary-container" data-path="inventory" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Inventory</span></a></nav></div></div><div class="p-space-md"><div class="p-space-md rounded-xl bg-primary-container/70 flex flex-col gap-space-xs"><div class="flex items-center justify-between text-on-primary-container"><span class="font-label-sm text-label-sm uppercase tracking-wider">Cluster Status</span><span class="material-symbols-outlined text-[16px] text-tertiary-fixed">cloud_done</span></div><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-data-mono text-label-sm text-on-primary">Operational · 3 Nodes</span></div><div class="w-full bg-tertiary-container h-1 rounded-full overflow-hidden mt-1"><div class="bg-secondary-fixed w-full h-full"></div></div></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-12 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline border-0 focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="Search orders, vehicles, SKU..." type="text"/><div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-surface-container font-data-mono text-label-sm text-on-surface-variant"><span>⌘</span><span>K</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-md text-label-md text-on-surface-variant">MongoDB Connected · 3 Nodes Active</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs"><button class="h-8 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-on-surface flex items-center gap-1 transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span>New Waybill</span></button><button class="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Notifications" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span></button><button class="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Audit Logs" type="button"><span class="material-symbols-outlined text-[18px]">receipt_long</span></button></div><div class="h-6 w-px bg-surface-container"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden md:flex"><span class="font-label-lg text-label-lg text-on-surface leading-tight font-medium">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Operations Lead</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt7YYVd1GB-uWBT_ivkZAfB_uovbTxo_5OWjxbbQ3US-HGOkyG2oXM1pN5x12pQhZ__B9XwsBMTSaRmw-CGsdWtpR3sDbCwG9CvPXLNFvJ6UiZ1F-3WPPrZYoNhk8_GcpSxYWJnbu546v-GkxJyEfN1Me3C8NQlAWZxzCWc11NUgSVAyTdoj27u7XofCSC087mS_mfxDZSad4OFDMdr8Fh65Ui1yJ4VUyyL23xaTxW"/></div></div></header><main class="w-full pt-14 px-space-lg flex-1 bg-surface"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Bar / Page Header Context -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md py-space-lg">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-mono text-label-sm text-secondary uppercase tracking-widest">WMS · Section 4.4</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Real-Time Floor Tracking</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Inventory Management</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time stock valuation, unit counts, and proactive automated restock safety buffers.</p>
+</div>
+<!-- Right utility controls -->
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<div class="hidden lg:flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">schedule</span>
+<span class="font-data-mono text-label-sm text-on-surface-variant">Sync: <strong class="text-on-surface font-medium">Just now</strong></span>
+</div>
+<button class="h-9 px-space-md rounded-lg bg-primary hover:bg-surface-container-highest text-on-primary font-label-lg text-label-lg flex items-center gap-2 shadow-sm transition-all active:scale-[0.98]" onclick="openAddModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span>+ Add Item</span>
+</button>
+</div>
+</div>
+<!-- KPI Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop mb-space-lg">
+<!-- Card 1: Total Tracked Items -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Total Tracked Items</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">category</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight">142</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-normal">Active SKUs</span>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>100% Barcode Catalogued</span>
+</div>
+<span class="font-data-mono text-label-sm text-on-surface-variant">Zones A-F</span>
+</div>
+</div>
+<!-- Card 2: Total Stock Quantity -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Total Stock Quantity</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight">48,920</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-normal">Units Available</span>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span>Aggregate volumetric flow: 84% cap</span>
+</div>
+<span class="font-data-mono text-label-sm text-on-surface-variant">WH-East</span>
+</div>
+</div>
+<!-- Card 3: Low-Stock Alerts -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-error font-semibold">Low-Stock Alerts</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm animate-pulse">Critical</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-error font-semibold tracking-tight">6</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-normal">Items Critical Below Threshold</span>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<button class="font-label-sm text-label-sm text-error hover:underline flex items-center gap-1 font-medium" onclick="setFilter('low-stock')" type="button">
+<span>Filter Critical Items</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<span class="font-data-mono text-label-sm text-on-surface-variant font-medium">PO Reorder Req.</span>
+</div>
+</div>
+</div>
+<!-- Operational Context Banner / Summary Visual -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-lg mb-space-lg shadow-sm flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[28px]">warehouse</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Material Reserves & Consumables Buffer</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time floor auditing guarantees 0-delay outbound dispatches. 6 materials require procurement signoff.</p>
+</div>
+</div>
+<!-- Visual Inline Sparkline / Fulfillment Ratio -->
+<div class="flex items-center gap-space-xl flex-wrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Stock Health Index</span>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-36 h-2 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="bg-secondary-container h-full" style="width: 95.7%"></div>
+<div class="bg-error h-full" style="width: 4.3%"></div>
+</div>
+<span class="font-data-mono text-label-sm text-on-surface font-semibold">95.7%</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-8 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export CSV</span>
+</button>
+<button class="h-8 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Print Manifest</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter & Action Toolbar -->
+<div class="rounded-t-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<!-- Quick Filters -->
+<div class="flex items-center gap-1 p-1 bg-surface-container-low rounded-lg overflow-x-auto" id="filterButtonGroup">
+<button class="px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-all bg-surface-container-lowest text-on-surface font-semibold shadow-xs" id="btnFilterAll" onclick="setFilter('all')" type="button">
+        All Items (142)
+      </button>
+<button class="px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-1.5" id="btnFilterLow" onclick="setFilter('low-stock')" type="button">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>Low Stock Warning (6)</span>
+</button>
+<button class="px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface" id="btnFilterOpt" onclick="setFilter('optimal')" type="button">
+        Optimal (136)
+      </button>
+</div>
+<!-- Search Input & Auxiliary controls -->
+<div class="flex items-center gap-space-sm flex-1 max-w-md justify-end">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-8 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-secondary transition-all" id="inventorySearchInput" onkeyup="filterTableSearch()" placeholder="Search by SKU, item name, unit..." type="text"/>
+<button class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface" id="clearSearchBtn" onclick="clearSearch()" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="relative">
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center gap-1 font-label-md text-label-md transition-colors" title="Filter by Unit" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="hidden sm:inline">Unit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Inventory Table Card Container -->
+<div class="bg-surface-container-lowest shadow-sm rounded-b-xl overflow-hidden mb-space-lg">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse" id="inventoryTable">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-10 select-none">
+<th class="py-2.5 px-space-lg w-12 text-center">#</th>
+<th class="py-2.5 px-space-md min-w-[260px]">Item Name</th>
+<th class="py-2.5 px-space-md min-w-[140px]">SKU / Code</th>
+<th class="py-2.5 px-space-md text-right min-w-[140px]">Quantity in Stock</th>
+<th class="py-2.5 px-space-md min-w-[100px] text-center">Unit</th>
+<th class="py-2.5 px-space-md text-right min-w-[130px]">Low-Stock Level</th>
+<th class="py-2.5 px-space-md min-w-[160px] text-center">Status Indicator</th>
+<th class="py-2.5 px-space-lg text-right min-w-[180px]">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container" id="inventoryTableBody">
+<!-- Row 1: Low Stock Critical (Shrink Film) -->
+<tr class="bg-error-container/20 hover:bg-error-container/30 transition-colors group" data-status="low">
+<td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">01</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">Industrial Pallet Shrink Film 500mm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Aisle 3 · Shelf B2 · Heavy Duty</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">SKU-LOG-901</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">priority_high</span>
+<span class="font-data-mono text-body-lg text-error font-bold" id="qty-SKU-LOG-901">45</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center">
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">roll</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">50</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-error-container text-on-error-container shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+<span>LOW STOCK ALERT</span>
+</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="openQuickAdjust('SKU-LOG-901', 'Industrial Pallet Shrink Film 500mm', 45, 'roll')" title="Quick Adjust Stock" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="openEditModal('SKU-LOG-901', 'Industrial Pallet Shrink Film 500mm', 45, 'roll', 50)" title="Edit Item" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors" onclick="deleteItemRow(this, 'SKU-LOG-901')" title="Delete Item" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Optimal Stock (Corrugated Shipping Boxes L) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group" data-status="optimal">
+<td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">02</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">Corrugated Shipping Boxes (L)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Aisle 1 · Pallet Stack 04</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">SKU-LOG-114</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<span class="font-data-mono text-body-lg text-on-surface font-bold" id="qty-SKU-LOG-114">1,420</span>
+</td>
+<td class="py-3 px-space-md text-center">
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">pcs</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">200</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>Normal Stock</span>
+</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="openQuickAdjust('SKU-LOG-114', 'Corrugated Shipping Boxes (L)', 1420, 'pcs')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="openEditModal('SKU-LOG-114', 'Corrugated Shipping Boxes (L)', 1420, 'pcs', 200)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors" onclick="deleteItemRow(this, 'SKU-LOG-114')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Low Stock Warning (Strapping Tape 50mm) -->
+<tr class="bg-surface-container-highest/20 hover:bg-surface-container-highest/40 transition-colors group" data-status="low">
+<td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">03</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">Heavy-Duty Strapping Tape 50mm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Packing Station 1-4 Supply</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">SKU-LOG-883</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+<span class="font-data-mono text-body-lg text-error font-bold" id="qty-SKU-LOG-883">180</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center">
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">roll</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">200</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-error-container text-on-error-container shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>LOW STOCK ALERT</span>
+</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="openQuickAdjust('SKU-LOG-883', 'Heavy-Duty Strapping Tape 50mm', 180, 'roll')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="openEditModal('SKU-LOG-883', 'Heavy-Duty Strapping Tape 50mm', 180, 'roll', 200)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors" onclick="deleteItemRow(this, 'SKU-LOG-883')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Optimal Stock (Poly Bubble Mailers #4) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group" data-status="optimal">
+<td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">04</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">Poly Bubble Mailers #4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Express Sort Facility</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">SKU-LOG-205</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<span class="font-data-mono text-body-lg text-on-surface font-bold" id="qty-SKU-LOG-205">8,500</span>
+</td>
+<td class="py-3 px-space-md text-center">
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">pcs</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">1,000</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>Normal Stock</span>
+</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="openQuickAdjust('SKU-LOG-205', 'Poly Bubble Mailers #4', 8500, 'pcs')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="openEditModal('SKU-LOG-205', 'Poly Bubble Mailers #4', 8500, 'pcs', 1000)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors" onclick="deleteItemRow(this, 'SKU-LOG-205')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Critical Low Stock (Wooden Euro Pallets Grade-A) -->
+<tr class="bg-error-container/25 hover:bg-error-container/35 transition-colors group" data-status="low">
+<td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">05</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">Wooden Euro Pallets Grade-A</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Docking Yard South · Gate 4</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">SKU-LOG-044</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error font-bold">report_problem</span>
+<span class="font-data-mono text-body-lg text-error font-bold" id="qty-SKU-LOG-044">24</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center">
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">pallet</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">50</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-error-container text-on-error-container shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+<span>LOW STOCK ALERT</span>
+</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="openQuickAdjust('SKU-LOG-044', 'Wooden Euro Pallets Grade-A', 24, 'pallet')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="openEditModal('SKU-LOG-044', 'Wooden Euro Pallets Grade-A', 24, 'pallet', 50)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors" onclick="deleteItemRow(this, 'SKU-LOG-044')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Optimal Stock (RFID Barcode Tracking Labels) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group" data-status="optimal">
+<td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">06</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">RFID Barcode Tracking Labels</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Secure Vault B · Thermal Rolls</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">SKU-LOG-512</span>
+</td>
+<td class="py-3 px-space-md text-right">
+<span class="font-data-mono text-body-lg text-on-surface font-bold" id="qty-SKU-LOG-512">38,751</span>
+</td>
+<td class="py-3 px-space-md text-center">
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">pcs</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">5,000</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>Normal Stock</span>
+</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="openQuickAdjust('SKU-LOG-512', 'RFID Barcode Tracking Labels', 38751, 'pcs')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="openEditModal('SKU-LOG-512', 'RFID Barcode Tracking Labels', 38751, 'pcs', 5000)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors" onclick="deleteItemRow(this, 'SKU-LOG-512')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination / Stats Footnote -->
+<div class="px-space-lg py-3 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm border-t border-surface-container">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+        Showing <span class="font-semibold text-on-surface" id="visibleRowCount">6</span> of <span class="font-semibold text-on-surface">142</span> tracked warehouse items
+      </div>
+<div class="flex items-center gap-2">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm disabled:opacity-40 shadow-xs" disabled="" type="button">
+          Previous
+        </button>
+<span class="font-data-mono text-label-sm text-on-surface-variant px-2">Page 1 of 24</span>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm shadow-xs transition-colors" type="button">
+          Next
+        </button>
+</div>
+</div>
+</div>
+<!-- Operational Audit Trail & Warehouse Visual Snapshot -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter-desktop">
+<!-- Visual Warehouse Inspection Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Facility Inspection</span>
+<span class="font-data-mono text-label-sm text-secondary">BAY-08A</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Central Pallet Storage Zone</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">High-density racking system with automated carousel verification active.</p>
+</div>
+<div class="mt-4 rounded-lg overflow-hidden relative h-40">
+<img class="w-full h-full object-cover" data-alt="Modern high bay logistics distribution warehouse interior with tall industrial steel shelving racks, neatly stored wooden euro pallets and wrapped cargo under bright energy efficient LED lighting in clean architectural precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARZuoZNfbtrEctK1A8arFtq061KQBCp1QEj8pCouknnCWmxGnN_B0BOWBBVa4zw3dzPDnAz3d9g3H4DD1RUhrVRfFDy0uPw9rEYYFzqwBk4zA5UC1nm50Iu20fNI0X5oKZjf3xw4JaG8z5ajVym51rtzqKsnSCp3s5uxJYbZ56mbQQss-VM3KAaYSu9uYmmgosUq4z2kmAvV4VHi59yIz1U0MEUSWxOQL8C7Yc9vkG"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-data-mono text-label-sm">
+          CCTV Sensor: LIVE
+        </div>
+</div>
+</div>
+<!-- Quick Restock Order Queue -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm lg:col-span-2 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">sync_alt</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Auto-Generated Reorder Recommendations</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">2 Approvals Pending</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mt-2">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-error uppercase font-semibold">URGENT RESTOCK</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Wooden Euro Pallets Grade-A</div>
+<span class="font-data-mono text-label-sm text-on-surface-variant">PO-2024-884 · +150 pallets</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">$3,450</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vendor: TimberLogix SA</span>
+<button class="h-7 px-space-sm rounded bg-primary hover:bg-surface-container-highest text-on-primary font-label-sm text-label-sm transition-colors" type="button">Authorize PO</button>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">SCHEDULED BATCH</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Industrial Pallet Shrink Film</div>
+<span class="font-data-mono text-label-sm text-on-surface-variant">PO-2024-885 · +100 rolls</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">$1,820</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vendor: PolyPack Industries</span>
+<button class="h-7 px-space-sm rounded bg-primary hover:bg-surface-container-highest text-on-primary font-label-sm text-label-sm transition-colors" type="button">Authorize PO</button>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>Procurement routing complies with Automated Safety Buffer rules (PRD 4.4)</span>
+</span>
+<a class="text-secondary hover:underline font-medium" href="#">View Vendor Contracts →</a>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- MODAL 1: ADD / EDIT ITEM FORM MODAL (PRD Section 4.4)        -->
+<!-- ============================================================ -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs" id="itemModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="px-space-lg py-4 bg-surface-container-low flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" id="modalIcon">add_box</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" id="modalTitle">Add New Inventory Item</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modalSub">Complete all required warehouse catalog parameters.</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeItemModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body / Form -->
+<form class="p-space-lg space-y-4" id="inventoryItemForm" onsubmit="handleItemFormSubmit(event)">
+<!-- Hidden input to track edit vs new -->
+<input id="formMode" type="hidden" value="create"/>
+<input id="originalSku" type="hidden" value=""/>
+<!-- Field 1: Item Name (Text) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="fieldName">
+            Item Name <span class="text-error">*</span>
+</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary transition-all" id="fieldName" placeholder="e.g. Industrial Pallet Shrink Film 500mm" required="" type="text"/>
+</div>
+<!-- Row: SKU & Unit -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Field 2: SKU / Code (Text) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="fieldSku">
+              SKU / Code <span class="text-error">*</span>
+</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low font-data-mono text-body-md text-on-surface uppercase focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary transition-all" id="fieldSku" placeholder="e.g. SKU-LOG-999" required="" type="text"/>
+</div>
+<!-- Field 4: Unit (Dropdown: pcs, kg, box, roll, pallet) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="fieldUnit">
+              Unit of Measure <span class="text-error">*</span>
+</label>
+<select class="w-full h-9 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary transition-all" id="fieldUnit" required="">
+<option value="pcs">pcs (Pieces)</option>
+<option value="box">box (Boxes)</option>
+<option value="roll">roll (Rolls)</option>
+<option value="pallet">pallet (Pallets)</option>
+<option value="kg">kg (Kilograms)</option>
+</select>
+</div>
+</div>
+<!-- Row: Quantity & Low-Stock Level -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Field 3: Quantity in stock (Number) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="fieldQty">
+              Quantity in Stock <span class="text-error">*</span>
+</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low font-data-mono text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary transition-all" id="fieldQty" min="0" placeholder="0" required="" type="number"/>
+</div>
+<!-- Field 5: Low-stock level (Number) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="fieldLowLevel">
+              Low-Stock Level Threshold <span class="text-error">*</span>
+</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low font-data-mono text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary transition-all" id="fieldLowLevel" min="1" placeholder="50" required="" type="number"/>
+</div>
+</div>
+<!-- Operational Helper Text -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-start gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">info</span>
+<span>When Quantity in Stock falls at or below the specified Low-Stock Level, the system immediately flags the item with an Urgent Low Stock Alert banner.</span>
+</div>
+<!-- Action Buttons (PRD: 'Cancel', 'Save Item') -->
+<div class="pt-3 flex items-center justify-end gap-space-sm border-t border-surface-container">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" onclick="closeItemModal()" type="button">
+            Cancel
+          </button>
+<button class="h-9 px-space-lg rounded-lg bg-primary hover:bg-surface-container-highest text-on-primary font-label-md text-label-md shadow-xs transition-colors flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span id="saveBtnText">Save Item</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- MODAL 2: QUICK QUANTITY ADJUSTMENT POPOVER / MODAL           -->
+<!-- ============================================================ -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs" id="quickAdjustModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl w-full max-w-sm overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<div class="px-space-lg py-3.5 bg-surface-container-low flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">tune</span>
+<span class="font-headline-sm text-body-lg text-on-surface font-semibold">Quick Stock Adjustment</span>
+</div>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeQuickAdjust()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="p-space-lg">
+<div class="mb-4">
+<span class="font-data-mono text-label-sm text-secondary uppercase font-semibold" id="qaSku">SKU-LOG-901</span>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold truncate" id="qaName">Industrial Pallet Shrink Film</div>
+<div class="mt-2 flex items-baseline gap-2 p-2 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Current Count:</span>
+<span class="font-data-mono text-headline-sm text-on-surface font-bold" id="qaCurrent">45</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="qaUnit">roll</span>
+</div>
+</div>
+<!-- Quick Adjustment Controls: +/- buttons -->
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Preset Delta Adjustments</label>
+<div class="grid grid-cols-4 gap-2 mb-4">
+<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container font-data-mono text-label-md text-error font-semibold transition-colors" onclick="applyPresetDelta(-10)" type="button">-10</button>
+<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container font-data-mono text-label-md text-error font-semibold transition-colors" onclick="applyPresetDelta(-1)" type="button">-1</button>
+<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container font-data-mono text-label-md text-secondary font-semibold transition-colors" onclick="applyPresetDelta(1)" type="button">+1</button>
+<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container font-data-mono text-label-md text-secondary font-semibold transition-colors" onclick="applyPresetDelta(10)" type="button">+10</button>
+</div>
+<!-- Custom Manual Value Entry -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="qaNewCount">
+            New Verified Stock Count
+          </label>
+<div class="flex items-center gap-2">
+<input class="flex-1 h-9 px-3 rounded-lg bg-surface-container-low font-data-mono text-headline-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary transition-all" id="qaNewCount" min="0" type="number"/>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase px-2" id="qaUnitLabel">roll</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-end gap-space-sm border-t border-surface-container">
+<button class="h-8 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" onclick="closeQuickAdjust()" type="button">
+            Cancel
+          </button>
+<button class="h-8 px-space-md rounded-lg bg-primary hover:bg-surface-container-highest text-on-primary font-label-md text-label-md transition-colors font-medium" onclick="saveQuickAdjust()" type="button">
+            Confirm Count
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 hidden max-w-sm rounded-xl p-space-md bg-primary text-on-primary shadow-xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-200" id="toastNotification">
+<span class="material-symbols-outlined text-secondary text-[22px]" id="toastIcon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold" id="toastTitle">Stock Updated</span>
+<span class="font-body-sm text-body-sm text-on-primary-container" id="toastMsg">SKU quantity successfully recorded.</span>
+</div>
+</div>
+<script>
+    let activeQuickSku = null;
+
+    // Toast helper
+    function showToast(title, msg, isError = false) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastMsg').innerText = msg;
+      const icon = document.getElementById('toastIcon');
+      if (isError) {
+        icon.innerText = 'warning';
+        icon.className = 'material-symbols-outlined text-error text-[22px]';
+      } else {
+        icon.innerText = 'check_circle';
+        icon.className = 'material-symbols-outlined text-secondary text-[22px]';
+      }
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Modal Add Trigger
+    function openAddModal() {
+      document.getElementById('formMode').value = 'create';
+      document.getElementById('modalTitle').innerText = 'Add New Inventory Item';
+      document.getElementById('modalSub').innerText = 'Register a new SKU and define automated low-stock warnings.';
+      document.getElementById('modalIcon').innerText = 'add_box';
+      document.getElementById('saveBtnText').innerText = 'Save Item';
+      document.getElementById('inventoryItemForm').reset();
+      document.getElementById('fieldSku').removeAttribute('readonly');
+      document.getElementById('itemModal').classList.remove('hidden');
+    }
+
+    // Modal Edit Trigger
+    function openEditModal(sku, name, qty, unit, threshold) {
+      document.getElementById('formMode').value = 'edit';
+      document.getElementById('originalSku').value = sku;
+      document.getElementById('modalTitle').innerText = 'Edit Inventory Item';
+      document.getElementById('modalSub').innerText = 'Modify warehouse SKU specifications or minimum threshold.';
+      document.getElementById('modalIcon').innerText = 'edit_document';
+      document.getElementById('saveBtnText').innerText = 'Update Item';
+
+      document.getElementById('fieldName').value = name;
+      document.getElementById('fieldSku').value = sku;
+      document.getElementById('fieldSku').setAttribute('readonly', 'true');
+      document.getElementById('fieldQty').value = qty;
+      document.getElementById('fieldUnit').value = unit;
+      document.getElementById('fieldLowLevel').value = threshold;
+
+      document.getElementById('itemModal').classList.remove('hidden');
+    }
+
+    function closeItemModal() {
+      document.getElementById('itemModal').classList.add('hidden');
+    }
+
+    // Quick Adjustment Modal triggers
+    function openQuickAdjust(sku, name, currentQty, unit) {
+      activeQuickSku = sku;
+      document.getElementById('qaSku').innerText = sku;
+      document.getElementById('qaName').innerText = name;
+      document.getElementById('qaCurrent').innerText = currentQty;
+      document.getElementById('qaUnit').innerText = unit;
+      document.getElementById('qaUnitLabel').innerText = unit;
+      document.getElementById('qaNewCount').value = currentQty;
+      document.getElementById('quickAdjustModal').classList.remove('hidden');
+    }
+
+    function closeQuickAdjust() {
+      document.getElementById('quickAdjustModal').classList.add('hidden');
+      activeQuickSku = null;
+    }
+
+    function applyPresetDelta(delta) {
+      const input = document.getElementById('qaNewCount');
+      let val = parseInt(input.value, 10) || 0;
+      val = Math.max(0, val + delta);
+      input.value = val;
+    }
+
+    function saveQuickAdjust() {
+      if (!activeQuickSku) return;
+      const newCount = parseInt(document.getElementById('qaNewCount').value, 10) || 0;
+      const targetEl = document.getElementById('qty-' + activeQuickSku);
+      if (targetEl) {
+        targetEl.innerText = newCount.toLocaleString();
+      }
+      showToast('Inventory Count Adjusted', activeQuickSku + ' quantity set to ' + newCount + '.');
+      closeQuickAdjust();
+    }
+
+    // Delete Item
+    function deleteItemRow(btn, sku) {
+      if (confirm('Are you sure you want to remove ' + sku + ' from inventory tracking?')) {
+        const row = btn.closest('tr');
+        if (row) {
+          row.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+          row.style.opacity = '0';
+          row.style.transform = 'translateX(10px)';
+          setTimeout(() => {
+            row.remove();
+            updateCountVisual();
+            showToast('Item Deleted', sku + ' removed from active tracking.');
+          }, 200);
+        }
+      }
+    }
+
+    // Handle Form Submit (Add or Edit)
+    function handleItemFormSubmit(e) {
+      e.preventDefault();
+      const mode = document.getElementById('formMode').value;
+      const name = document.getElementById('fieldName').value.trim();
+      const sku = document.getElementById('fieldSku').value.trim().toUpperCase();
+      const qty = parseInt(document.getElementById('fieldQty').value, 10) || 0;
+      const unit = document.getElementById('fieldUnit').value;
+      const threshold = parseInt(document.getElementById('fieldLowLevel').value, 10) || 0;
+
+      const isLow = qty <= threshold;
+      const statusBadge = isLow
+        ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-error-container text-on-error-container shadow-xs">
+             <span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+             <span>LOW STOCK ALERT</span>
+           </span>`
+        : `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm uppercase font-semibold bg-surface-container text-on-surface">
+             <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+             <span>Normal Stock</span>
+           </span>`;
+
+      const qtyDisplay = isLow
+        ? `<div class="flex items-center justify-end gap-1.5">
+             <span class="material-symbols-outlined text-[16px] text-error">priority_high</span>
+             <span class="font-data-mono text-body-lg text-error font-bold" id="qty-${sku}">${qty.toLocaleString()}</span>
+           </div>`
+        : `<span class="font-data-mono text-body-lg text-on-surface font-bold" id="qty-${sku}">${qty.toLocaleString()}</span>`;
+
+      const rowClasses = isLow
+        ? 'bg-error-container/20 hover:bg-error-container/30 transition-colors group'
+        : 'hover:bg-surface-container-low/50 transition-colors group';
+
+      if (mode === 'create') {
+        const tbody = document.getElementById('inventoryTableBody');
+        const count = tbody.querySelectorAll('tr').length + 1;
+        const padIndex = count < 10 ? '0' + count : count;
+
+        const newRow = document.createElement('tr');
+        newRow.setAttribute('data-status', isLow ? 'low' : 'optimal');
+        newRow.className = rowClasses;
+        newRow.innerHTML = `
+          <td class="py-3 px-space-lg text-center font-data-mono text-label-sm text-on-surface-variant">${padIndex}</td>
+          <td class="py-3 px-space-md">
+            <div class="flex flex-col">
+              <span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary">${name}</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">General Storage Buffer</span>
+            </div>
+          </td>
+          <td class="py-3 px-space-md">
+            <span class="font-data-mono text-label-md text-primary font-medium bg-surface-container-low px-2 py-0.5 rounded">${sku}</span>
+          </td>
+          <td class="py-3 px-space-md text-right">${qtyDisplay}</td>
+          <td class="py-3 px-space-md text-center">
+            <span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded bg-surface-container-low uppercase">${unit}</span>
+          </td>
+          <td class="py-3 px-space-md text-right font-data-mono text-body-md text-on-surface-variant font-medium">${threshold.toLocaleString()}</td>
+          <td class="py-3 px-space-md text-center">${statusBadge}</td>
+          <td class="py-3 px-space-lg text-right">
+            <div class="flex items-center justify-end gap-1">
+              <button type="button" onclick="openQuickAdjust('${sku}', '${name}', ${qty}, '${unit}')" class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-secondary-fixed text-primary font-label-md text-label-md flex items-center gap-1 transition-colors">
+                <span class="material-symbols-outlined text-[16px]">tune</span>
+                <span>Adjust</span>
+              </button>
+              <button type="button" onclick="openEditModal('${sku}', '${name}', ${qty}, '${unit}', ${threshold})" class="h-8 w-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-[18px]">edit</span>
+              </button>
+              <button type="button" onclick="deleteItemRow(this, '${sku}')" class="h-8 w-8 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.prepend(newRow);
+        showToast('Item Created', `${sku} added to active inventory floor.`);
+      } else {
+        // Edit mode
+        showToast('Item Saved', `${sku} details and reorder thresholds updated.`);
+      }
+
+      updateCountVisual();
+      closeItemModal();
+    }
+
+    // Filter toolbar buttons: All | Low Stock Warning | Optimal
+    function setFilter(type) {
+      const btnAll = document.getElementById('btnFilterAll');
+      const btnLow = document.getElementById('btnFilterLow');
+      const btnOpt = document.getElementById('btnFilterOpt');
+
+      const neutralClass = 'px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface';
+      const activeClass = 'px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-all bg-surface-container-lowest text-on-surface font-semibold shadow-xs';
+
+      btnAll.className = type === 'all' ? activeClass : neutralClass;
+      btnLow.className = (type === 'low-stock' ? activeClass : neutralClass) + ' flex items-center gap-1.5';
+      btnOpt.className = type === 'optimal' ? activeClass : neutralClass;
+
+      const rows = document.querySelectorAll('#inventoryTableBody tr');
+      let visible = 0;
+
+      rows.forEach(row => {
+        const status = row.getAttribute('data-status');
+        if (type === 'all') {
+          row.classList.remove('hidden');
+          visible++;
+        } else if (type === 'low-stock' && status === 'low') {
+          row.classList.remove('hidden');
+          visible++;
+        } else if (type === 'optimal' && status === 'optimal') {
+          row.classList.remove('hidden');
+          visible++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+      document.getElementById('visibleRowCount').innerText = visible;
+    }
+
+    // Search filter
+    function filterTableSearch() {
+      const q = document.getElementById('inventorySearchInput').value.toLowerCase().trim();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (q.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      const rows = document.querySelectorAll('#inventoryTableBody tr');
+      let visible = 0;
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(q)) {
+          row.classList.remove('hidden');
+          visible++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+      document.getElementById('visibleRowCount').innerText = visible;
+    }
+
+    function clearSearch() {
+      document.getElementById('inventorySearchInput').value = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      filterTableSearch();
+    }
+
+    function updateCountVisual() {
+      const visible = document.querySelectorAll('#inventoryTableBody tr:not(.hidden)').length;
+      document.getElementById('visibleRowCount').innerText = visible;
+    }
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed":"#cce5ff","inverse-on-surface":"#eaf1ff","surface-container-low":"#eff4ff","secondary-fixed":"#dbe1ff","on-surface-variant":"#45474c","on-tertiary-fixed":"#001d31","primary":"#091426","surface-container-lowest":"#ffffff","tertiary-container":"#002b45","surface-container-high":"#dce9ff","error":"#ba1a1a","tertiary":"#001626","surface":"#f8f9ff","on-secondary":"#ffffff","on-tertiary-container":"#2f96db","on-surface":"#0b1c30","secondary-container":"#316bf3","on-primary":"#ffffff","on-secondary-fixed-variant":"#003ea8","surface-container-highest":"#d3e4fe","on-primary-container":"#8590a6","on-background":"#0b1c30","tertiary-fixed-dim":"#93ccff","surface-bright":"#f8f9ff","surface-tint":"#545f73","primary-fixed":"#d8e3fb","on-primary-fixed":"#111c2d","on-error":"#ffffff","primary-container":"#1e293b","on-primary-fixed-variant":"#3c475a","surface-container":"#e5eeff","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-tertiary":"#ffffff","outline":"#75777d","inverse-primary":"#bcc7de","primary-fixed-dim":"#bcc7de","background":"#f8f9ff","secondary-fixed-dim":"#b4c5ff","secondary":"#0051d5","error-container":"#ffdad6","on-secondary-container":"#fefcff","outline-variant":"#c5c6cd","on-secondary-fixed":"#00174b","on-tertiary-fixed-variant":"#004b73","surface-variant":"#d3e4fe","on-error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","margin-desktop":"2rem","space-xs":"0.25rem","space-xl":"2rem","space-sm":"0.5rem","margin-tablet":"1.5rem","space-lg":"1.25rem","gutter":"1rem","gutter-desktop":"1.5rem","margin":"1rem"},fontFamily:{"headline-lg":["Inter"],"body-sm":["Inter"],"data-mono":["JetBrains Mono"],"headline-xl":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"label-lg":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"]},fontSize:{"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"data-mono":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary text-on-primary z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-lg flex items-center justify-between bg-primary"><div class="flex items-center gap-space-sm min-w-0"><img alt="BisTech Logistics Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UdgmEe-1AuwxO0gHEaoN5fqIkwI9ewKM0QyvyefY3h6WvNn-YvK84P_Pcswxnx5n0tGw4vc0W1mSCUZzTuHNhAtGMT8IJzou9qLTaCf6hBx7k_d3H-U-aSUQ2iL8H_Xs0SKIqFWVON9ZLii8lL3CHzfNuns3IZ4xnMY1iEGMCuzwSAJmV2oyrtNsyRxOYgoXolVKnYBCDvCrBBLLJSRzJyRUewrisA_PSwVyPar7N3bw"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary truncate tracking-tight">BisTech</span><span class="font-label-sm text-label-sm text-on-primary-container leading-none uppercase">Logistics ERP</span></div></div><span class="inline-flex items-center px-space-xs py-0.5 rounded-lg font-label-sm text-label-sm uppercase bg-primary-container text-tertiary-fixed border border-on-primary-container/20">v0.1</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-tertiary/60"><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim animate-pulse"></span><span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase">Environment</span></div><span class="font-data-mono text-label-sm text-tertiary-fixed-dim">PROTOTYPE</span></div></div><div class="px-space-md pt-space-xs"><p class="px-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Operations Core</p><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-label-lg shadow-sm border-l-2 border-secondary-container"><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-label-lg shadow-sm border-l-2 border-secondary-container" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary-container hover:bg-primary-container/50 hover:text-on-primary transition-colors" data-path="cod-debit-credit" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span>COD, Debit & Credit</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary-container hover:bg-primary-container/50 hover:text-on-primary transition-colors" data-path="fleet" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span>Fleet</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary-container hover:bg-primary-container/50 hover:text-on-primary transition-colors" data-path="inventory" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Inventory</span></a></nav></div></div><div class="p-space-md"><div class="p-space-md rounded-xl bg-primary-container/70 flex flex-col gap-space-xs"><div class="flex items-center justify-between text-on-primary-container"><span class="font-label-sm text-label-sm uppercase tracking-wider">Cluster Status</span><span class="material-symbols-outlined text-[16px] text-tertiary-fixed">cloud_done</span></div><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-data-mono text-label-sm text-on-primary">Operational · 3 Nodes</span></div><div class="w-full bg-tertiary-container h-1 rounded-full overflow-hidden mt-1"><div class="bg-secondary-fixed w-full h-full"></div></div></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-12 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline border-0 focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="Search orders, vehicles, SKU..." type="text"/><div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-surface-container font-data-mono text-label-sm text-on-surface-variant"><span>⌘</span><span>K</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-md text-label-md text-on-surface-variant">MongoDB Connected · 3 Nodes Active</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs"><button class="h-8 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-on-surface flex items-center gap-1 transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span>New Waybill</span></button><button class="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Notifications" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span></button><button class="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Audit Logs" type="button"><span class="material-symbols-outlined text-[18px]">receipt_long</span></button></div><div class="h-6 w-px bg-surface-container"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden md:flex"><span class="font-label-lg text-label-lg text-on-surface leading-tight font-medium">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Operations Lead</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt7YYVd1GB-uWBT_ivkZAfB_uovbTxo_5OWjxbbQ3US-HGOkyG2oXM1pN5x12pQhZ__B9XwsBMTSaRmw-CGsdWtpR3sDbCwG9CvPXLNFvJ6UiZ1F-3WPPrZYoNhk8_GcpSxYWJnbu546v-GkxJyEfN1Me3C8NQlAWZxzCWc11NUgSVAyTdoj27u7XofCSC087mS_mfxDZSad4OFDMdr8Fh65Ui1yJ4VUyyL23xaTxW"/></div></div></header><main class="w-full pt-14 px-space-lg flex-1 bg-surface"><div class="flex flex-col w-full pb-12">
+<!-- Top Operational Banner & System Sync -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md py-space-lg mb-space-md">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-sm mb-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Logistics Operations Dashboard</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          PRD §4.1 EXEC-SYNC
+        </span>
+</div>
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline">history</span>
+          Live Sync · Auto-refreshed 2m ago
+        </span>
+<span>•</span>
+<span class="font-data-mono text-label-sm text-outline">SHARD-03_ORD_FLEET_REPLICA</span>
+</div>
+</div>
+<!-- Filter Control & Date Context -->
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">hub</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">All Hubs & Branches</span>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container text-on-surface flex items-center gap-1.5 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+<span>Filter Scope</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary shadow-sm hover:bg-primary-container flex items-center gap-1.5 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export Metrics</span>
+</button>
+</div>
+</div>
+<!-- SECTION 1: Finance Overview -->
+<div class="flex flex-col gap-space-sm mb-space-xl">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">account_balance_wallet</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Section 1 · Finance Overview</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono text-label-sm text-on-surface-variant">LEDGER_REALTIME</span>
+</div>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-0.5" href="#">
+        Ledger Details
+        <span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<!-- Card 1: COD Pending -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="absolute top-0 left-0 right-0 h-1 bg-amber-500"></div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium tracking-wide uppercase">COD Pending</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 text-amber-800 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+              +8.4% this week
+            </span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-data-mono">$42,850.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Total pending cash collection · <span class="font-medium text-on-surface">14 pending receipts</span></p>
+</div>
+<div class="pt-3 flex items-center justify-between bg-surface-container-low/40 -mx-5 -mb-5 px-5 py-3">
+<span class="font-label-sm text-label-sm text-outline uppercase font-data-mono">Escrow Node 02</span>
+<a class="font-label-md text-label-md text-secondary font-medium flex items-center gap-1 hover:translate-x-0.5 transition-transform" href="#">
+<span>View in COD & Finance</span>
+<span class="material-symbols-outlined text-[16px]">trending_flat</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Total Debit (Receivables) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500"></div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium tracking-wide uppercase">Total Debit (Receivables)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Customer Invoices
+            </span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-data-mono">$86,400.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Customer receivables pending clearing · <span class="font-medium text-on-surface">22 open balances</span></p>
+</div>
+<div class="pt-3 flex items-center justify-between bg-surface-container-low/40 -mx-5 -mb-5 px-5 py-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-data-mono text-label-sm text-on-surface-variant">Aging avg: 4.2d</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded">91.2% healthy</span>
+</div>
+</div>
+<!-- Card 3: Total Credit (Payables) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="absolute top-0 left-0 right-0 h-1 bg-rose-500"></div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium tracking-wide uppercase">Total Credit (Payables)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-rose-50 text-rose-800 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+              Due < 7 Days
+            </span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-data-mono">$31,250.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Vendor & supplier payables · <span class="font-medium text-rose-700">7 vendor invoices due</span></p>
+</div>
+<div class="pt-3 flex items-center justify-between bg-surface-container-low/40 -mx-5 -mb-5 px-5 py-3">
+<span class="font-data-mono text-label-sm text-outline">Next: Fuel logistics ($9.4k)</span>
+<span class="font-label-sm text-label-sm text-rose-700 font-medium">Batch 04 Queued</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Fleet Status Overview -->
+<div class="flex flex-col gap-space-sm mb-space-xl">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_shipping</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Section 2 · Fleet Status Overview</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono text-label-sm text-on-surface-variant">TELEMETRY_CONNECTED</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-data-mono">GPS Ping: 42s ago</span>
+</div>
+<!-- Metric Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Total Fleet -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-medium">Total Fleet</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface">rv_hookup</span>
+</div>
+<div>
+<span class="font-headline-xl text-headline-xl font-data-mono text-on-surface">28</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">Commercial Vehicles</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-3">Active across North & West Hubs</p>
+</div>
+<!-- Available -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-medium">Available</span>
+<span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+</div>
+<div>
+<span class="font-headline-xl text-headline-xl font-data-mono text-emerald-800">14</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">Vehicles (50%)</span>
+</div>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="material-symbols-outlined text-emerald-700 text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-emerald-800 font-medium">Ready for dispatch</span>
+</div>
+</div>
+<!-- On Trip -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-medium">On Trip</span>
+<span class="w-3 h-3 rounded-full bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.4)]"></span>
+</div>
+<div>
+<span class="font-headline-xl text-headline-xl font-data-mono text-blue-900">10</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">Vehicles (36%)</span>
+</div>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="material-symbols-outlined text-blue-700 text-[16px]">navigation</span>
+<span class="font-body-sm text-body-sm text-blue-900 font-medium">In-transit right now</span>
+</div>
+</div>
+<!-- In Maintenance -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-medium">In Maintenance</span>
+<span class="w-3 h-3 rounded-full bg-amber-500"></span>
+</div>
+<div>
+<span class="font-headline-xl text-headline-xl font-data-mono text-amber-900">4</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">Vehicles (14%)</span>
+</div>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="material-symbols-outlined text-amber-700 text-[16px]">build_circle</span>
+<span class="font-body-sm text-body-sm text-amber-900 font-medium">Service bay · North Hub</span>
+</div>
+</div>
+</div>
+<!-- Compact Visual Readiness Segmented Bar -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm mt-1">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Fleet Readiness & Utilization Index</span>
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-2.5 h-2.5 rounded bg-emerald-500"></span> 50% Available</span>
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-2.5 h-2.5 rounded bg-blue-600"></span> 36% On Trip</span>
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-2.5 h-2.5 rounded bg-amber-500"></span> 14% Maintenance</span>
+</div>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-emerald-500 h-full transition-all duration-500" style="width: 50%" title="50% Available"></div>
+<div class="bg-blue-600 h-full transition-all duration-500" style="width: 36%" title="36% On Trip"></div>
+<div class="bg-amber-500 h-full transition-all duration-500" style="width: 14%" title="14% Maintenance"></div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Inventory Health -->
+<div class="flex flex-col gap-space-sm mb-space-xl">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">inventory_2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Section 3 · Inventory Health</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono text-label-sm text-on-surface-variant">CENTRAL_WAREHOUSE</span>
+</div>
+<span class="font-label-md text-label-md text-outline font-data-mono">Capacity: 78.4% utilized</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<!-- Total SKUs -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-medium block mb-1">Total SKUs / Items</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-data-mono text-on-surface">142</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Active catalog items</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-data-mono mt-2 block">+3 registered this cycle</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">category</span>
+</div>
+</div>
+<!-- Total Stock Volume -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-medium block mb-1">Total Stock Volume</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-data-mono text-on-surface">48,920</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Units on hand</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-700 font-data-mono mt-2 block">Spread across 6 Aisles</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">pallet</span>
+</div>
+</div>
+<!-- Low-Stock Alerts -->
+<div class="p-5 rounded-xl bg-rose-50/70 shadow-sm flex items-center justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-md text-label-md text-rose-900 uppercase font-semibold">Low-Stock Alerts</span>
+<span class="px-2 py-0.5 rounded bg-rose-200/70 text-rose-900 font-label-sm text-label-sm uppercase font-bold animate-pulse">Critical</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-data-mono text-rose-800">6</span>
+<span class="font-body-sm text-body-sm text-rose-900 font-medium">Critical items below safety floor</span>
+</div>
+<span class="font-label-sm text-label-sm text-rose-800 font-semibold mt-2 block">Reorder recommended immediately</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-rose-100 flex items-center justify-center text-rose-700 shrink-0">
+<span class="material-symbols-outlined text-[26px]">warning</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Recent Cross-Module Activity Feed (Split Clean Table) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">sync_alt</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Section 4 · Recent Cross-Module Activity Feed</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono text-label-sm text-on-surface-variant">CROSS_NODE_STREAM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+<span class="font-label-sm text-label-sm text-outline">Realtime ingestion</span>
+</div>
+</div>
+<!-- Dual Surface Bento Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-gutter-desktop items-start">
+<!-- Left: Latest 4 Finance Settlements -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="px-5 py-3.5 bg-surface-container-low/70 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">payments</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Latest 4 COD Settlements</span>
+</div>
+<span class="font-data-mono text-label-sm text-on-surface-variant">TOTAL: $14,920.00</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-4">Receipt / Party</th>
+<th class="py-2.5 px-4">Agent / Hub</th>
+<th class="py-2.5 px-4 text-right">Amount</th>
+<th class="py-2.5 px-4 text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-medium text-on-surface">Apex Distribution Ltd</div>
+<div class="font-data-mono text-label-sm text-outline">REC-8841-COD</div>
+</td>
+<td class="py-3 px-4">
+<div class="text-on-surface">Marcus Vance</div>
+<div class="text-label-sm text-outline">North Hub Depot</div>
+</td>
+<td class="py-3 px-4 text-right font-data-mono font-medium text-on-surface">
+                  $4,280.00
+                </td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm uppercase bg-emerald-100/70 text-emerald-800">
+                    Settled
+                  </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-medium text-on-surface">Solano Retail Partners</div>
+<div class="font-data-mono text-label-sm text-outline">REC-8840-COD</div>
+</td>
+<td class="py-3 px-4">
+<div class="text-on-surface">Devon Ray</div>
+<div class="text-label-sm text-outline">West Hub Dispatch</div>
+</td>
+<td class="py-3 px-4 text-right font-data-mono font-medium text-on-surface">
+                  $2,150.00
+                </td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm uppercase bg-emerald-100/70 text-emerald-800">
+                    Settled
+                  </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-medium text-on-surface">Metro Hypermarket Co.</div>
+<div class="font-data-mono text-label-sm text-outline">REC-8839-COD</div>
+</td>
+<td class="py-3 px-4">
+<div class="text-on-surface">Tariq Hamilton</div>
+<div class="text-label-sm text-outline">North Hub Depot</div>
+</td>
+<td class="py-3 px-4 text-right font-data-mono font-medium text-on-surface">
+                  $6,890.00
+                </td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm uppercase bg-emerald-100/70 text-emerald-800">
+                    Settled
+                  </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-medium text-on-surface">Evergreen Pharma Supply</div>
+<div class="font-data-mono text-label-sm text-outline">REC-8838-COD</div>
+</td>
+<td class="py-3 px-4">
+<div class="text-on-surface">Elena Ramos</div>
+<div class="text-label-sm text-outline">South Satellite</div>
+</td>
+<td class="py-3 px-4 text-right font-data-mono font-medium text-on-surface">
+                  $1,600.00
+                </td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm uppercase bg-emerald-100/70 text-emerald-800">
+                    Settled
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 bg-surface-container-low/30 text-center">
+<a class="font-label-sm text-label-sm text-secondary hover:underline font-medium" href="#">View Complete Settlements Ledger (86 Records) →</a>
+</div>
+</div>
+<!-- Right: Quick Dispatch & Critical Stock Table -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="px-5 py-3.5 bg-surface-container-low/70 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">alt_route</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Dispatches & Critical Stock Monitor</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-label-sm text-label-sm uppercase font-semibold">2 Flags Alert</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-4">Unit / SKU</th>
+<th class="py-2.5 px-4">Identifier / Name</th>
+<th class="py-2.5 px-4">Condition / State</th>
+<th class="py-2.5 px-4 text-right">Metrics</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm">
+<!-- Dispatch Item 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-blue-100 text-blue-900 font-medium">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                    FLEET-12
+                  </span>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-on-surface">Volvo FH16 · Driver D. Cruz</div>
+<div class="font-label-sm text-outline">Route: North Hub → Port Terminal</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 text-blue-900 font-label-sm text-label-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                    Rolling Out (42 km/h)
+                  </span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-label-sm text-on-surface-variant">
+                  ETA 14:30
+                </td>
+</tr>
+<!-- Critical Stock Item 1 -->
+<tr class="hover:bg-rose-50/40 transition-colors bg-rose-50/20">
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                    SKU-7721
+                  </span>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-rose-950">Thermal Wrap Roll (Heavy)</div>
+<div class="font-label-sm text-rose-800">Aisle 3 · Bin B-14</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm uppercase bg-rose-100 text-rose-800 font-semibold">
+                    Stockout Risk
+                  </span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono font-bold text-rose-700">
+                  8 / 150 min
+                </td>
+</tr>
+<!-- Dispatch Item 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-blue-100 text-blue-900 font-medium">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                    FLEET-07
+                  </span>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-on-surface">Isuzu NPR · Driver K. Thorne</div>
+<div class="font-label-sm text-outline">Route: West Hub → Downtown Zone</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 text-blue-900 font-label-sm text-label-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                    Dispatched (Departed)
+                  </span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-label-sm text-on-surface-variant">
+                  ETA 11:15
+                </td>
+</tr>
+<!-- Critical Stock Item 2 -->
+<tr class="hover:bg-amber-50/40 transition-colors bg-amber-50/20">
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                    SKU-9042
+                  </span>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-amber-950">Industrial Sealant Type-B</div>
+<div class="font-label-sm text-amber-800">Aisle 1 · Hazardous Bay 4</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm uppercase bg-amber-100 text-amber-900 font-semibold">
+                    Reorder Threshold
+                  </span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono font-bold text-amber-800">
+                  14 / 80 min
+                </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 bg-surface-container-low/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline">Showing live operational triggers</span>
+<a class="text-secondary hover:underline font-medium" href="#">View Dispatch Board & Stock Alarms →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Footer Metrics Bar -->
+<div class="mt-space-xl p-4 rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">PRD 4.1 Executive System Integration</span>
+</div>
+<span class="hidden md:inline text-outline">|</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cross-sync validation active: Finance (Collections), Fleet (Telematics), Inventory (WMS)</span>
+</div>
+<div class="flex items-center gap-space-sm font-data-mono text-label-sm text-outline">
+<span>LATENCY: 14ms</span>
+<span>•</span>
+<span>ERROR RATE: 0.00%</span>
+<span>•</span>
+<span class="text-emerald-700 font-medium">STATUS: NOMINAL</span>
+</div>
+</div>
+</div></main></div></body></html>
