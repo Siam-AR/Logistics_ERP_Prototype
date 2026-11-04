@@ -1,5 +1,7 @@
-/* app/globals.css */
 @import "tailwindcss";
+
+/* replaces darkMode: "class" */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
