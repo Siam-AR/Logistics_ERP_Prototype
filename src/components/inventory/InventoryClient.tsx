@@ -1,9 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import type { InventoryItem } from "@/lib/types";
-import Modal from "./Modal";
 
 type Filter = "all" | "low" | "optimal";
 type FormState = { name: string; sku: string; quantity: string; unit: string; lowStockLevel: string };
@@ -14,6 +14,43 @@ const isLow = (i: InventoryItem) => i.quantity <= i.lowStockLevel;
 
 const inputCls =
   "h-9 w-full rounded-lg bg-surface-container-low px-3 text-body-md text-on-surface transition-all focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary";
+
+function Modal({
+  title,
+  icon,
+  maxWidth = "max-w-lg",
+  onClose,
+  children,
+}: {
+  title: string;
+  icon: string;
+  maxWidth?: string;
+  onClose: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={onClose}>
+      <section
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        className={`w-full ${maxWidth} max-h-[90vh] overflow-y-auto rounded-xl bg-surface-container-lowest p-space-lg shadow-xl`}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="mb-4 flex items-center justify-between border-b border-surface-container pb-3">
+          <h2 className="flex items-center gap-2 text-title-md font-semibold text-on-surface">
+            <span className="material-symbols-outlined text-secondary">{icon}</span>
+            {title}
+          </h2>
+          <button type="button" aria-label="Close dialog" onClick={onClose} className="rounded-lg p-1 hover:bg-surface-container">
+            <span className="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        {children}
+      </section>
+    </div>
+  );
+}
 
 async function send(url: string, method: string, body?: unknown): Promise<string | null> {
   try {
