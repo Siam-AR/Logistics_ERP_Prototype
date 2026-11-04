@@ -1,4 +1,12 @@
+import dns from "node:dns";
 import { MongoClient, Db } from "mongodb";
+
+// Configure reliable DNS servers to prevent querySrv ENODATA on local networks/ISPs
+try {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+} catch {
+  // Ignore in restricted environments where custom DNS servers cannot be set
+}
 
 const globalForMongo = globalThis as unknown as { _mongoClient?: Promise<MongoClient> };
 
