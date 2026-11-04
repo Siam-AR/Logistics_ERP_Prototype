@@ -1,0 +1,12 @@
+[1mdiff --git a/src/lib/db.ts b/src/lib/db.ts[m
+[1mindex 76f21eb..5f2de8f 100644[m
+[1m--- a/src/lib/db.ts[m
+[1m+++ b/src/lib/db.ts[m
+[36m@@ -15,5 +15,5 @@[m [mfunction getClient(): Promise<MongoClient> {[m
+ [m
+ export async function getDb(): Promise<Db> {[m
+   const client = await getClient();[m
+[31m-  return client.db(process.env.MONGODB_DB || "logistics_erp");[m
+[32m+[m[32m  return client.db(process.env.MONGODB_DB || "Logistics_ERP_Prototype");[m
+ }[m
+\ No newline at end of file[m
