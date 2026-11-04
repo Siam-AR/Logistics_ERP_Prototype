@@ -41,7 +41,6 @@ export default function InventoryPage() {
   return (
     <>
       <div className="flex flex-col gap-0.5 py-space-lg">
-        <span className="font-mono text-label-sm uppercase tracking-widest text-secondary">Module 4.4</span>
         <h1 className="text-headline-lg tracking-tight">Inventory Management</h1>
         <p className="text-body-sm text-on-surface-variant">Know what stock is on hand and what is running low.</p>
       </div>
