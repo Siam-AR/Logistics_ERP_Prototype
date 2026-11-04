@@ -1,6 +1,6 @@
 /* app/globals.css */
 @import "tailwindcss";
-@config "../tailwind.config.ts";
+@config "../../tailwind.config.ts";
 
 /* replaces darkMode: "class" */
 @custom-variant dark (&:where(.dark, .dark *));
