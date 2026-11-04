@@ -1,5 +1,6 @@
 /* app/globals.css */
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
