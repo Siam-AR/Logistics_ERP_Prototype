@@ -46,3 +46,4 @@ export async function DELETE(_req: Request, { params }: Ctx) {
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
+
