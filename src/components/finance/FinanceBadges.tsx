@@ -1,4 +1,4 @@
-import type { EntryStatus, EntryType } from "./types";
+import type { EntryStatus, EntryType } from "@/lib/types";
 
 const typeStyles: Record<EntryType, string> = {
     COD: "bg-surface-container-high text-on-surface",
