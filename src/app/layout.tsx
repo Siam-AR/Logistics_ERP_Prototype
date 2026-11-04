@@ -7,20 +7,20 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "BisTech Logistics ERP",
-  description: "Logistics ERP Prototype",
+    title: "BisTech ERP Prototype",
+    description: "Developed by Developer of BisTech",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </head>
-      <body className="font-sans">
+      <body className="font-sans" suppressHydrationWarning>
         <aside className="fixed left-0 top-0 z-50 flex h-full w-64 flex-col bg-primary text-on-primary">
           <div className="flex h-14 items-center justify-between px-space-lg">
             <div className="flex flex-col leading-tight">

@@ -6,67 +6,140 @@
 }
 
 @theme {
-  --color-background: #f8f9ff;
-  --color-surface: #f8f9ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #eff4ff;
-  --color-surface-container: #e5eeff;
-  --color-surface-container-high: #dce9ff;
-  --color-surface-container-highest: #d3e4fe;
-  --color-on-surface: #0b1c30;
-  --color-on-surface-variant: #45474c;
-  --color-outline: #75777d;
-  --color-outline-variant: #c5c6cd;
-  --color-primary: #091426;
-  --color-primary-container: #1e293b;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #8590a6;
-  --color-secondary: #0051d5;
-  --color-secondary-container: #316bf3;
-  --color-secondary-fixed: #dbe1ff;
-  --color-secondary-fixed-dim: #b4c5ff;
-  --color-tertiary: #001626;
-  --color-tertiary-container: #002b45;
+  /* Colors */
   --color-tertiary-fixed: #cce5ff;
-  --color-tertiary-fixed-dim: #93ccff;
+  --color-inverse-on-surface: #eaf1ff;
+  --color-surface-container-low: #eff4ff;
+  --color-secondary-fixed: #dbe1ff;
+  --color-on-surface-variant: #45474c;
+  --color-on-tertiary-fixed: #001d31;
+  --color-primary: #091426;
+  --color-surface-container-lowest: #ffffff;
+  --color-tertiary-container: #002b45;
+  --color-surface-container-high: #dce9ff;
   --color-error: #ba1a1a;
+  --color-tertiary: #001626;
+  --color-surface: #f8f9ff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary-container: #2f96db;
+  --color-on-surface: #0b1c30;
+  --color-secondary-container: #316bf3;
+  --color-on-primary: #ffffff;
+  --color-on-secondary-fixed-variant: #003ea8;
+  --color-surface-container-highest: #d3e4fe;
+  --color-on-primary-container: #8590a6;
+  --color-on-background: #0b1c30;
+  --color-tertiary-fixed-dim: #93ccff;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-tint: #545f73;
+  --color-primary-fixed: #d8e3fb;
+  --color-on-primary-fixed: #111c2d;
+  --color-on-error: #ffffff;
+  --color-primary-container: #1e293b;
+  --color-on-primary-fixed-variant: #3c475a;
+  --color-surface-container: #e5eeff;
+  --color-inverse-surface: #213145;
+  --color-surface-dim: #cbdbf5;
+  --color-on-tertiary: #ffffff;
+  --color-outline: #75777d;
+  --color-inverse-primary: #bcc7de;
+  --color-primary-fixed-dim: #bcc7de;
+  --color-background: #f8f9ff;
+  --color-secondary-fixed-dim: #b4c5ff;
+  --color-secondary: #0051d5;
   --color-error-container: #ffdad6;
+  --color-on-secondary-container: #fefcff;
+  --color-outline-variant: #c5c6cd;
+  --color-on-secondary-fixed: #00174b;
+  --color-on-tertiary-fixed-variant: #004b73;
+  --color-surface-variant: #d3e4fe;
   --color-on-error-container: #93000a;
 
+  /* Border Radius */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* Spacing */
   --spacing-space-xs: 0.25rem;
   --spacing-space-sm: 0.5rem;
   --spacing-space-md: 0.75rem;
   --spacing-space-lg: 1.25rem;
   --spacing-space-xl: 2rem;
+  --spacing-gutter: 1rem;
   --spacing-gutter-desktop: 1.5rem;
+  --spacing-margin: 1rem;
+  --spacing-margin-tablet: 1.5rem;
+  --spacing-margin-desktop: 2rem;
 
+  /* Font Families */
+  --font-headline-xl: var(--font-inter), Inter, sans-serif;
+  --font-headline-xl-mobile: var(--font-inter), Inter, sans-serif;
+  --font-headline-lg: var(--font-inter), Inter, sans-serif;
+  --font-headline-md: var(--font-inter), Inter, sans-serif;
+  --font-headline-sm: var(--font-inter), Inter, sans-serif;
+  --font-body-lg: var(--font-inter), Inter, sans-serif;
+  --font-body-md: var(--font-inter), Inter, sans-serif;
+  --font-body-sm: var(--font-inter), Inter, sans-serif;
+  --font-label-lg: var(--font-inter), Inter, sans-serif;
+  --font-label-md: var(--font-inter), Inter, sans-serif;
+  --font-label-sm: var(--font-inter), Inter, sans-serif;
+  --font-data-mono: var(--font-jetbrains), "JetBrains Mono", monospace;
+
+  /* Typography / Font Size */
   --text-headline-xl: 32px;
   --text-headline-xl--line-height: 40px;
   --text-headline-xl--letter-spacing: -0.02em;
   --text-headline-xl--font-weight: 600;
+
+  --text-headline-xl-mobile: 24px;
+  --text-headline-xl-mobile--line-height: 32px;
+  --text-headline-xl-mobile--letter-spacing: -0.015em;
+  --text-headline-xl-mobile--font-weight: 600;
+
   --text-headline-lg: 24px;
   --text-headline-lg--line-height: 32px;
   --text-headline-lg--letter-spacing: -0.015em;
   --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 28px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+
   --text-headline-sm: 16px;
   --text-headline-sm--line-height: 24px;
   --text-headline-sm--font-weight: 600;
+
   --text-body-lg: 16px;
   --text-body-lg--line-height: 24px;
+  --text-body-lg--font-weight: 400;
+
   --text-body-md: 14px;
   --text-body-md--line-height: 20px;
+  --text-body-md--font-weight: 400;
+
   --text-body-sm: 13px;
   --text-body-sm--line-height: 18px;
+  --text-body-sm--font-weight: 400;
+
   --text-label-lg: 14px;
   --text-label-lg--line-height: 20px;
   --text-label-lg--font-weight: 500;
+
   --text-label-md: 12px;
   --text-label-md--line-height: 16px;
   --text-label-md--font-weight: 500;
+
   --text-label-sm: 11px;
   --text-label-sm--line-height: 14px;
   --text-label-sm--letter-spacing: 0.04em;
   --text-label-sm--font-weight: 600;
+
+  --text-data-mono: 13px;
+  --text-data-mono--line-height: 18px;
+  --text-data-mono--font-weight: 400;
 }
 
 body {
