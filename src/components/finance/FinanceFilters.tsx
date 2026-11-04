@@ -1,4 +1,4 @@
-import { DEFAULT_FILTERS, type FinanceFilters as Filters } from "./types";
+import { DEFAULT_FILTERS, type FinanceFilters as Filters } from "@/lib/types";
 
 interface Props {
     filters: Filters;

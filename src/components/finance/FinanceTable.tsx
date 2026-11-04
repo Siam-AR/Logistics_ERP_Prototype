@@ -1,5 +1,5 @@
 import FinanceTableRow from "./FinanceTableRow";
-import type { FinanceEntry } from "./types";
+import type { FinanceEntry } from "@/lib/types";
 
 interface Props {
     entries: FinanceEntry[];
