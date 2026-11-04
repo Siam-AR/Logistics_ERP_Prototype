@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+/* app/globals.css */
+/* app/globals.css */
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
+=======
+@import "tailwindcss";
+>>>>>>> origin/dev
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "BisTech Logistics ERP",
-  description: "Logistics ERP Prototype",
+    title: "BisTech ERP Prototype",
+    description: "Developed by Developer of BisTech",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
