@@ -90,9 +90,9 @@ Three developers, six hours. Each developer owns one module end to end (page, fo
 
 | Branch           | Module                  |
 | ---------------- | ----------------------- |
-| `feat/finance`   | COD, Debit & Credit     |
-| `feat/fleet`     | Fleet                   |
-| `feat/inventory` | Inventory and Dashboard |
+| `feature/finance`   | COD, Debit & Credit     |
+| `feature/fleet`     | Fleet                   |
+| `feature/inventory` | Inventory and Dashboard |
 
 Merge to `main` at the agreed checkpoints. Touch only your own folders, except the shared files (`lib/types.ts`, `components/`).
 
