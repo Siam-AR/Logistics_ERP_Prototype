@@ -1,17 +1,19 @@
 import { MongoClient, Db } from "mongodb";
 
-const uri = process.env.MONGODB_URI;
-if (!uri) {
-  throw new Error("MONGODB_URI is not set in .env");
-}
-
-// Single cached client (survives hot reload in dev)
 const globalForMongo = globalThis as unknown as { _mongoClient?: Promise<MongoClient> };
 
-const clientPromise: Promise<MongoClient> =
-  globalForMongo._mongoClient ?? (globalForMongo._mongoClient = new MongoClient(uri).connect());
+function getClient(): Promise<MongoClient> {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error("MONGODB_URI is not set");
+  }
+  if (!globalForMongo._mongoClient) {
+    globalForMongo._mongoClient = new MongoClient(uri).connect();
+  }
+  return globalForMongo._mongoClient;
+}
 
 export async function getDb(): Promise<Db> {
-  const client = await clientPromise;
-  return client.db(process.env.MONGODB_DB || "Logistics_ERP_Prototype");
+  const client = await getClient();
+  return client.db(process.env.MONGODB_DB || "logistics_erp");
 }
