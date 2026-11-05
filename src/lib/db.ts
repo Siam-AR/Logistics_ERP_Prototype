@@ -1,16 +1,21 @@
 import { MongoClient, Db } from "mongodb";
+import { register } from "./instrumentation";
 
-// DNS servers are set in src/instrumentation.ts (runs at server start).
+// Ensure DNS servers are set before resolving MongoDB SRV records
+if (process.env.NEXT_RUNTIME === "nodejs" || typeof window === "undefined") {
+    register().catch(() => {});
+}
 
 const globalForMongo = globalThis as unknown as {
     _mongoClient?: Promise<MongoClient>;
 };
 
-function getClient(): Promise<MongoClient> {
+async function getClient(): Promise<MongoClient> {
     const uri = process.env.MONGODB_URI;
     if (!uri) {
         throw new Error("MONGODB_URI is not set");
     }
+    await register().catch(() => {});
     if (!globalForMongo._mongoClient) {
         globalForMongo._mongoClient = new MongoClient(uri)
             .connect()
