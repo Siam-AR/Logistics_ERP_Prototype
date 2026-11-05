@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -27,22 +28,22 @@ export default function Header() {
       </div>
       <div className="flex items-center gap-space-md">
         <div className="hidden sm:flex items-center gap-space-xs">
-          <button
+          <Link
+            href="/finance"
             className="h-8 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-on-surface flex items-center gap-1 transition-colors"
-            type="button"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
             <span>New Waybill</span>
-          </button>
+          </Link>
           <button
-            className="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors"
+            className="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors cursor-pointer"
             title="Notifications"
             type="button"
           >
             <span className="material-symbols-outlined text-[18px]">notifications</span>
           </button>
           <button
-            className="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors"
+            className="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors cursor-pointer"
             title="Audit Logs"
             type="button"
           >

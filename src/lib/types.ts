@@ -54,3 +54,65 @@ export interface Vehicle {
 
 export type NewVehicle = Omit<Vehicle, "_id">;
 export type VehicleFilter = VehicleStatus | "ALL";
+
+// ---------- Dashboard ----------
+export interface SettlementItem {
+    id: string;
+    partyName: string;
+    receiptCode: string;
+    agentName: string;
+    hubName: string;
+    amount: number;
+    status: "Settled" | "Pending";
+}
+
+export interface MonitorItem {
+    id: string;
+    tag: string;
+    type: "fleet" | "inventory-critical" | "inventory-warning";
+    identifier: string;
+    subtitle: string;
+    condition: string;
+    metric: string;
+}
+
+export interface DashboardMetrics {
+    finance: {
+        codPending: {
+            amount: number;
+            receiptsCount: number;
+            trendText?: string;
+        };
+        receivables: {
+            amount: number;
+            openBalancesCount: number;
+            agingAvg?: string;
+            healthPct?: string;
+        };
+        payables: {
+            amount: number;
+            invoicesDueCount: number;
+            nextPayment?: string;
+            batchStatus?: string;
+        };
+    };
+    fleet: {
+        totalFleet: number;
+        available: number;
+        onTrip: number;
+        inMaintenance: number;
+        gpsPing?: string;
+    };
+    inventory: {
+        totalSkus: number;
+        newSkusCount: number;
+        totalVolume: number;
+        aislesCount: number;
+        criticalLowStockCount: number;
+        warehouseCapacityUtilized?: string;
+    };
+    activity: {
+        settlements: SettlementItem[];
+        monitors: MonitorItem[];
+    };
+}
