@@ -11,9 +11,23 @@ const globalForMongo = globalThis as unknown as {
 };
 
 async function getClient(): Promise<MongoClient> {
-    const uri = process.env.MONGODB_URI;
+    let uri = process.env.MONGODB_URI?.trim();
     if (!uri) {
         throw new Error("MONGODB_URI is not set");
+    }
+    // Handle cases where the whole key=value string was pasted into Vercel's value field
+    if (uri.startsWith("MONGODB_URI=")) {
+        uri = uri.slice("MONGODB_URI=".length).trim();
+    }
+    // Handle cases where quotes were accidentally pasted or added
+    if (
+        (uri.startsWith('"') && uri.endsWith('"')) ||
+        (uri.startsWith("'") && uri.endsWith("'"))
+    ) {
+        uri = uri.slice(1, -1).trim();
+    }
+    if (uri.startsWith('\\"') && uri.endsWith('\\"')) {
+        uri = uri.slice(2, -2).trim();
     }
     if (!globalForMongo._mongoClient) {
         globalForMongo._mongoClient = new MongoClient(uri, {
