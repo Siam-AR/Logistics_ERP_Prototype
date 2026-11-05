@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { VEHICLE_STATUSES, type Vehicle, type VehicleInput } from "@/lib/types";
+import {
+    VEHICLE_STATUSES,
+    type NewVehicle,
+    type Vehicle,
+} from "@/lib/types";
 
 const input =
     "w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none";
@@ -12,10 +16,10 @@ export default function VehicleForm({
     onCancel,
 }: {
     vehicle: Vehicle | null;
-    onSubmit: (data: VehicleInput) => Promise<void>;
+    onSubmit: (data: NewVehicle) => Promise<void>;
     onCancel: () => void;
 }) {
-    const [form, setForm] = useState<VehicleInput>({
+    const [form, setForm] = useState<NewVehicle>({
         plate: vehicle?.plate ?? "",
         vehicleType: vehicle?.vehicleType ?? "",
         driver: vehicle?.driver ?? "",
@@ -23,7 +27,7 @@ export default function VehicleForm({
         notes: vehicle?.notes ?? "",
     });
     const [saving, setSaving] = useState(false);
-    const set = (k: keyof VehicleInput, v: string) =>
+    const set = <K extends keyof NewVehicle>(k: K, v: NewVehicle[K]) =>
         setForm((f) => ({ ...f, [k]: v }));
 
     return (
@@ -69,7 +73,12 @@ export default function VehicleForm({
                 <select
                     className={input}
                     value={form.status}
-                    onChange={(e) => set("status", e.target.value)}
+                    onChange={(e) => {
+                        const status = VEHICLE_STATUSES.find(
+                            (value) => value === e.target.value,
+                        );
+                        if (status) set("status", status);
+                    }}
                 >
                     {VEHICLE_STATUSES.map((s) => (
                         <option key={s}>{s}</option>
