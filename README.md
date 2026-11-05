@@ -38,8 +38,8 @@ No other libraries beyond what these four require.
 npm install
 
 # 2. Create your environment file
-cp .env.example .env.local
-# then set MONGODB_URI in .env.local
+cp .env.local.example .env.local
+# then replace the placeholders in MONGODB_URI with your MongoDB Atlas connection details
 
 # 3. (Optional) Load sample data
 npm run seed
@@ -52,9 +52,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Environment Variables
 
-| Variable      | Description               |
-| ------------- | ------------------------- |
-| `MONGODB_URI` | MongoDB connection string |
+| Variable      | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `MONGODB_URI` | MongoDB connection string (including Atlas host) |
+| `MONGODB_DB`  | Database name (defaults to `logistics_erp`)      |
 
 ## Project Structure
 
