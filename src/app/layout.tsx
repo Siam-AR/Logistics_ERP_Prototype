@@ -3,13 +3,14 @@ import Image from "next/image";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-    title: "BisTech ERP Prototype",
-    description: "Developed by Developer of BisTech",
+  title: "BisTech ERP Prototype",
+  description: "Developed by Developer of BisTech",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -38,14 +39,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="font-mono text-label-sm text-tertiary-fixed-dim">PROTOTYPE</span>
             </div>
           </div>
-          <div className="px-space-md pt-space-xs">
-            <p className="px-space-sm pb-space-xs text-label-sm uppercase tracking-wider text-on-primary-container">
-              Operations Core
-            </p>
-            <Nav />
+
+          <div className="p-space-md">
+            <div className="p-space-md rounded-xl bg-primary-container/70 flex flex-col gap-space-xs">
+              <div className="flex items-center justify-between text-on-primary-container">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider">Cluster Status</span>
+                <span className="material-symbols-outlined text-[16px] text-tertiary-fixed">cloud_done</span>
+              </div>
+              <div className="flex items-center gap-space-xs">
+                <span className="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span className="font-mono text-label-sm text-on-primary">Operational · 3 Nodes</span>
+              </div>
+              <div className="w-full bg-tertiary-container h-1 rounded-full overflow-hidden mt-1">
+                <div className="bg-secondary-fixed w-full h-full"></div>
+              </div>
+            </div>
           </div>
         </aside>
-        <main className="min-h-screen pl-64">
+
+        <Header />
+
+        <main className="min-h-screen pl-64 pt-14 bg-surface">
           <div className="px-space-lg pb-space-xl">{children}</div>
         </main>
       </body>
