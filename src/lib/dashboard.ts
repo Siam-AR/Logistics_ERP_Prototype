@@ -1,20 +1,65 @@
 import { getDb } from "./db";
-import { seedIfEmpty, seedFinanceIfEmpty, seedFleetIfEmpty } from "./seed";
+import { seedAllIfEmpty } from "./seed";
 import type { DashboardMetrics, SettlementItem, MonitorItem } from "./types";
 
 export async function getDashboardMetrics(): Promise<DashboardMetrics> {
   const db = await getDb();
 
-  // Ensure collections have sample data if empty
-  await Promise.all([
-    seedIfEmpty(db),
-    seedFinanceIfEmpty(db),
-    seedFleetIfEmpty(db),
+  // Ensure collections have sample data if empty (memoized in-memory)
+  await seedAllIfEmpty(db);
+
+  // Run all 3 collection queries in parallel with lean projections and database-level sorting
+  const [financeDocs, vehicleDocs, inventoryDocs] = await Promise.all([
+    db
+      .collection("finance")
+      .find(
+        {},
+        {
+          projection: {
+            type: 1,
+            status: 1,
+            amount: 1,
+            partyName: 1,
+            reference: 1,
+            partyNote: 1,
+            date: 1,
+          },
+        }
+      )
+      .sort({ date: -1 })
+      .toArray(),
+    db
+      .collection("vehicles")
+      .find(
+        {},
+        {
+          projection: {
+            status: 1,
+            plate: 1,
+            vehicleType: 1,
+            driver: 1,
+            notes: 1,
+          },
+        }
+      )
+      .toArray(),
+    db
+      .collection("inventory")
+      .find(
+        {},
+        {
+          projection: {
+            quantity: 1,
+            lowStockLevel: 1,
+            sku: 1,
+            name: 1,
+          },
+        }
+      )
+      .toArray(),
   ]);
 
-  // 1. Fetch Finance documents
-  const financeDocs = await db.collection("finance").find().toArray();
-
+  // 1. Finance Aggregations
   let codPendingAmount = 0;
   let codPendingCount = 0;
   let totalDebitAmount = 0;
@@ -48,12 +93,10 @@ export async function getDashboardMetrics(): Promise<DashboardMetrics> {
     }
   }
 
-  // Calculate receivables health percentage
   const debitRatio = totalDebitAmount > 0 ? (totalDebitSettled / totalDebitAmount) * 100 : 91.2;
   const healthPct = `${debitRatio.toFixed(1)}% healthy`;
 
-  // 2. Fetch Fleet (Vehicles) documents
-  const vehicleDocs = await db.collection("vehicles").find().toArray();
+  // 2. Fleet Aggregations
   const totalFleet = vehicleDocs.length;
   let available = 0;
   let onTrip = 0;
@@ -65,8 +108,7 @@ export async function getDashboardMetrics(): Promise<DashboardMetrics> {
     else if (v.status === "In Maintenance") inMaintenance++;
   }
 
-  // 3. Fetch Inventory documents
-  const inventoryDocs = await db.collection("inventory").find().toArray();
+  // 3. Inventory Aggregations
   const totalSkus = inventoryDocs.length;
   let totalVolume = 0;
   let criticalLowStockCount = 0;
@@ -87,14 +129,8 @@ export async function getDashboardMetrics(): Promise<DashboardMetrics> {
     }
   }
 
-  // 4. Activity: Settlements (Latest 4 from finance)
-  const sortedFinance = [...financeDocs].sort((a, b) => {
-    const dateA = a.date || "";
-    const dateB = b.date || "";
-    return dateB.localeCompare(dateA);
-  });
-
-  const settlements: SettlementItem[] = sortedFinance.slice(0, 4).map((f, i) => {
+  // 4. Activity: Settlements (Latest 4, already sorted by date descending)
+  const settlements: SettlementItem[] = financeDocs.slice(0, 4).map((f, i) => {
     const isSettled = (f.status || "").toUpperCase() === "SETTLED";
     const note = f.partyNote || "";
     let agentName = "Marcus Vance";

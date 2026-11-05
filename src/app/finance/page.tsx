@@ -10,7 +10,24 @@ async function FinanceData() {
   const db = await getDb();
   await seedFinanceIfEmpty(db);
 
-  const docs = await db.collection("finance").find().sort({ date: -1 }).toArray();
+  const docs = await db
+    .collection("finance")
+    .find(
+      {},
+      {
+        projection: {
+          date: 1,
+          partyName: 1,
+          partyNote: 1,
+          type: 1,
+          reference: 1,
+          amount: 1,
+          status: 1,
+        },
+      }
+    )
+    .sort({ date: -1 })
+    .toArray();
 
   const initialEntries: FinanceEntry[] = docs.map((d) => ({
     _id: d._id.toString(),

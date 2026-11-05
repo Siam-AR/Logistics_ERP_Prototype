@@ -21,7 +21,18 @@ async function FleetData() {
 
     const docs = await db
         .collection("vehicles")
-        .find()
+        .find(
+            {},
+            {
+                projection: {
+                    plate: 1,
+                    vehicleType: 1,
+                    driver: 1,
+                    status: 1,
+                    notes: 1,
+                },
+            }
+        )
         .sort({ _id: -1 })
         .toArray();
     const vehicles: Vehicle[] = docs.map((d) => ({

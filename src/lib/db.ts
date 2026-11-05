@@ -1,18 +1,42 @@
 import { MongoClient, Db } from "mongodb";
+import { register } from "./instrumentation";
 
-// DNS servers are set in src/instrumentation.ts (runs at server start).
+// Ensure DNS servers are set before resolving MongoDB SRV records
+if (process.env.NEXT_RUNTIME === "nodejs" || typeof window === "undefined") {
+    register().catch(() => {});
+}
 
 const globalForMongo = globalThis as unknown as {
     _mongoClient?: Promise<MongoClient>;
 };
 
-function getClient(): Promise<MongoClient> {
-    const uri = process.env.MONGODB_URI;
+async function getClient(): Promise<MongoClient> {
+    let uri = process.env.MONGODB_URI?.trim();
     if (!uri) {
         throw new Error("MONGODB_URI is not set");
     }
+    // Handle cases where the whole key=value string was pasted into Vercel's value field
+    if (uri.startsWith("MONGODB_URI=")) {
+        uri = uri.slice("MONGODB_URI=".length).trim();
+    }
+    // Handle cases where quotes were accidentally pasted or added
+    if (
+        (uri.startsWith('"') && uri.endsWith('"')) ||
+        (uri.startsWith("'") && uri.endsWith("'"))
+    ) {
+        uri = uri.slice(1, -1).trim();
+    }
+    if (uri.startsWith('\\"') && uri.endsWith('\\"')) {
+        uri = uri.slice(2, -2).trim();
+    }
     if (!globalForMongo._mongoClient) {
-        globalForMongo._mongoClient = new MongoClient(uri)
+        globalForMongo._mongoClient = new MongoClient(uri, {
+            maxPoolSize: 10,
+            minPoolSize: 1,
+            maxIdleTimeMS: 60000,
+            serverSelectionTimeoutMS: 5000,
+            connectTimeoutMS: 10000,
+        })
             .connect()
             .catch((err) => {
                 // Don't cache a failed connection, otherwise every later request fails too.
