@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
@@ -22,14 +23,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans" suppressHydrationWarning>
         <aside className="fixed left-0 top-0 z-50 flex h-full w-64 flex-col bg-primary text-on-primary">
-          <div className="flex h-14 items-center justify-between px-space-lg">
-            <div className="flex flex-col leading-tight">
-              <span className="text-headline-sm">BisTech</span>
-              <span className="text-label-sm uppercase text-on-primary-container">Logistics ERP</span>
+          <div className="flex h-14 items-center px-space-lg">
+            <div className="flex items-center gap-space-xs">
+              <Image src="/logo.png" alt="BisTech logo" width={32} height={32} className="object-contain" />
+              <div className="flex flex-col leading-tight">
+                <span className="text-headline-sm">BisTech</span>
+                <span className="text-label-sm uppercase text-on-primary-container">Logistics ERP</span>
+              </div>
             </div>
-            <span className="rounded border border-on-primary-container/20 bg-primary-container px-space-xs py-0.5 text-label-sm uppercase text-tertiary-fixed">
-              v0.1
-            </span>
           </div>
           <div className="px-space-md py-space-sm">
             <div className="flex items-center justify-between rounded-lg bg-tertiary/60 px-space-sm py-1.5">
