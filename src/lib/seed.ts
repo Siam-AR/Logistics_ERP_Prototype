@@ -178,24 +178,51 @@ const sampleVehicles: NewVehicle[] = [
     },
 ];
 
-// Preloads sample data the first time the collection is empty.
+const isSeeded = {
+    inventory: false,
+    finance: false,
+    fleet: false,
+};
+
+// Preloads sample data the first time the collection is empty and sets up performance indexes.
 export async function seedIfEmpty(db: Db) {
+    if (isSeeded.inventory) return;
     const col = db.collection("inventory");
     if ((await col.estimatedDocumentCount()) === 0) {
         await col.insertMany(sampleItems.map((i) => ({ ...i })));
+        await col.createIndex({ name: 1 }).catch(() => {});
+        await col.createIndex({ sku: 1 }).catch(() => {});
     }
+    isSeeded.inventory = true;
 }
 
 export async function seedFinanceIfEmpty(db: Db) {
+    if (isSeeded.finance) return;
     const col = db.collection("finance");
     if ((await col.estimatedDocumentCount()) === 0) {
         await col.insertMany(sampleFinanceEntries.map((e) => ({ ...e })));
+        await col.createIndex({ date: -1 }).catch(() => {});
+        await col.createIndex({ type: 1, status: 1 }).catch(() => {});
     }
+    isSeeded.finance = true;
 }
 
 export async function seedFleetIfEmpty(db: Db) {
+    if (isSeeded.fleet) return;
     const col = db.collection("vehicles");
     if ((await col.estimatedDocumentCount()) === 0) {
         await col.insertMany(sampleVehicles.map((v) => ({ ...v })));
+        await col.createIndex({ status: 1 }).catch(() => {});
     }
+    isSeeded.fleet = true;
 }
+
+export async function seedAllIfEmpty(db: Db) {
+    if (isSeeded.inventory && isSeeded.finance && isSeeded.fleet) return;
+    await Promise.all([
+        seedIfEmpty(db),
+        seedFinanceIfEmpty(db),
+        seedFleetIfEmpty(db),
+    ]);
+}
+

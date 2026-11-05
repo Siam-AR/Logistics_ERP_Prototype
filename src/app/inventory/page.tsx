@@ -10,7 +10,11 @@ async function InventoryData() {
   await connection();
   const db = await getDb();
   await seedIfEmpty(db);
-  const docs = await db.collection("inventory").find().sort({ name: 1 }).toArray();
+  const docs = await db
+    .collection("inventory")
+    .find({}, { projection: { name: 1, sku: 1, quantity: 1, unit: 1, lowStockLevel: 1 } })
+    .sort({ name: 1 })
+    .toArray();
 
   const items: InventoryItem[] = docs.map((d) => ({
     _id: d._id.toString(),
