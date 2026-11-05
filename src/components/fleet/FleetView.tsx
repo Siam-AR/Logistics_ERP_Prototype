@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Modal from "@/component/Modal";
-import Table, { type Column } from "@/component/Table";
+import Modal from "@/components/fleet/Modal";
+import Table, { type Column } from "@/components/fleet/Table";
 import VehicleForm from "./VehicleForm";
 import {
     VEHICLE_STATUSES,
