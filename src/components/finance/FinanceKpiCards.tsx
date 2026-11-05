@@ -1,5 +1,5 @@
-import { formatCurrency } from "./format";
-import type { FinanceEntry } from "./types";
+import { formatCurrency } from "@/lib/format";
+import type { FinanceEntry } from "@/lib/types";
 
 interface KpiCardProps {
     label: string;

@@ -1,6 +1,6 @@
 import { StatusBadge, TypeBadge } from "./FinanceBadges";
-import { formatCurrency, formatDate, getInitials } from "./format";
-import type { EntryType, FinanceEntry } from "./types";
+import { formatCurrency, formatDate, getInitials } from "@/lib/format";
+import type { EntryType, FinanceEntry } from "@/lib/types";
 
 const amountColor: Record<EntryType, string> = {
     COD: "text-on-surface",

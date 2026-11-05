@@ -7,4 +7,30 @@ export type InventoryItem = {
   lowStockLevel: number;
 };
 
-// FinanceEntry and Vehicle will be added by the other developers.
+export type EntryType = "COD" | "DEBIT" | "CREDIT";
+export type EntryStatus = "PENDING" | "SETTLED";
+
+export interface FinanceEntry {
+  _id: string;
+  date: string; // ISO: "YYYY-MM-DD"
+  partyName: string;
+  partyNote?: string;
+  type: EntryType;
+  reference: string;
+  amount: number;
+  status: EntryStatus;
+}
+
+export type NewFinanceEntry = Omit<FinanceEntry, "_id">;
+
+export interface FinanceFilters {
+  search: string;
+  type: EntryType | "ALL";
+  status: EntryStatus | "ALL";
+}
+
+export const DEFAULT_FILTERS: FinanceFilters = {
+  search: "",
+  type: "ALL",
+  status: "ALL",
+};

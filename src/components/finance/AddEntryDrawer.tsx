@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { todayISO } from "./format";
-import type { EntryStatus, EntryType, NewFinanceEntry } from "./types";
+import { todayISO } from "@/lib/format";
+import type { EntryStatus, EntryType, NewFinanceEntry } from "@/lib/types";
 
 interface Props {
     open: boolean;

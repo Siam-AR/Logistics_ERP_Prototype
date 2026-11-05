@@ -10,7 +10,7 @@ import {
     DEFAULT_FILTERS,
     type FinanceEntry,
     type NewFinanceEntry,
-} from "./types";
+} from "@/lib/types";
 
 export default function FinanceLedger({
     initialEntries,
@@ -37,26 +37,65 @@ export default function FinanceLedger({
         });
     }, [entries, filters]);
 
-    // TODO: replace these three handlers with API calls (MongoDB) once backend is ready.
-    const handleAdd = (data: NewFinanceEntry) => {
-        const entry: FinanceEntry = {
-            ...data,
-            _id: crypto.randomUUID(),
-            reference:
-                data.reference ||
-                `MANUAL-${Math.floor(1000 + Math.random() * 9000)}`,
-        };
-        setEntries((prev) => [entry, ...prev]);
-        setDrawerOpen(false);
+    const handleAdd = async (data: NewFinanceEntry) => {
+        try {
+            const res = await fetch("/api/finance", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+            if (res.ok) {
+                const created: FinanceEntry = await res.json();
+                setEntries((prev) => [created, ...prev]);
+                setDrawerOpen(false);
+            } else {
+                const errData = await res.json().catch(() => ({}));
+                alert(errData.error || "Failed to create finance entry");
+            }
+        } catch (err) {
+            console.error("Failed to add entry:", err);
+            alert("Network error while creating entry");
+        }
     };
 
-    const handleSettle = (id: string) =>
+    const handleSettle = async (id: string) => {
         setEntries((prev) =>
             prev.map((e) => (e._id === id ? { ...e, status: "SETTLED" } : e)),
         );
+        try {
+            const res = await fetch(`/api/finance/${id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status: "SETTLED" }),
+            });
+            if (!res.ok) {
+                setEntries((prev) =>
+                    prev.map((e) => (e._id === id ? { ...e, status: "PENDING" } : e)),
+                );
+            }
+        } catch (err) {
+            console.error("Failed to settle entry:", err);
+            setEntries((prev) =>
+                prev.map((e) => (e._id === id ? { ...e, status: "PENDING" } : e)),
+            );
+        }
+    };
 
-    const handleDelete = (id: string) =>
+    const handleDelete = async (id: string) => {
+        const previous = entries;
         setEntries((prev) => prev.filter((e) => e._id !== id));
+        try {
+            const res = await fetch(`/api/finance/${id}`, {
+                method: "DELETE",
+            });
+            if (!res.ok) {
+                setEntries(previous);
+            }
+        } catch (err) {
+            console.error("Failed to delete entry:", err);
+            setEntries(previous);
+        }
+    };
 
     return (
         <div className="flex flex-col w-full pb-space-xl">
