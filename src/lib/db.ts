@@ -15,9 +15,14 @@ async function getClient(): Promise<MongoClient> {
     if (!uri) {
         throw new Error("MONGODB_URI is not set");
     }
-    await register().catch(() => {});
     if (!globalForMongo._mongoClient) {
-        globalForMongo._mongoClient = new MongoClient(uri)
+        globalForMongo._mongoClient = new MongoClient(uri, {
+            maxPoolSize: 10,
+            minPoolSize: 1,
+            maxIdleTimeMS: 60000,
+            serverSelectionTimeoutMS: 5000,
+            connectTimeoutMS: 10000,
+        })
             .connect()
             .catch((err) => {
                 // Don't cache a failed connection, otherwise every later request fails too.
