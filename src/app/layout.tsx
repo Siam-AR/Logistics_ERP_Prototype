@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans bg-surface" suppressHydrationWarning>
-        <aside className="fixed left-0 top-0 z-50 flex h-full w-64 flex-col justify-between bg-primary text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <aside className="fixed left-0 top-0 z-50 flex h-full w-64 flex-col bg-primary text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
           <div className="flex flex-col">
             <div className="flex h-14 items-center justify-between px-space-lg">
               <div className="flex flex-col leading-tight">
@@ -49,22 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 Operations Core
               </p>
               <Nav />
-            </div>
-          </div>
-
-          <div className="p-space-md">
-            <div className="p-space-md rounded-xl bg-primary-container/70 flex flex-col gap-space-xs">
-              <div className="flex items-center justify-between text-on-primary-container">
-                <span className="font-label-sm text-label-sm uppercase tracking-wider">Cluster Status</span>
-                <span className="material-symbols-outlined text-[16px] text-tertiary-fixed">cloud_done</span>
-              </div>
-              <div className="flex items-center gap-space-xs">
-                <span className="w-2 h-2 rounded-full bg-secondary-container"></span>
-                <span className="font-mono text-label-sm text-on-primary">Operational · 3 Nodes</span>
-              </div>
-              <div className="w-full bg-tertiary-container h-1 rounded-full overflow-hidden mt-1">
-                <div className="bg-secondary-fixed w-full h-full"></div>
-              </div>
             </div>
           </div>
         </aside>
